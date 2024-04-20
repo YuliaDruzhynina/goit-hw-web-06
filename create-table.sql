@@ -11,7 +11,7 @@ CREATE TABLE students (
 drop table if exists groups;
 CREATE TABLE groups (
   id INTEGER  PRIMARY KEY AUTOINCREMENT NOT NULL,
-  name VARCHAR(50) NOT NULL,
+  group_name VARCHAR(50) NOT NULL,
   student_id INTEGER,
   FOREIGN KEY (student_id) REFERENCES students(id)
   	ON UPDATE CASCADE
@@ -21,15 +21,15 @@ CREATE TABLE groups (
 drop table if exists teachers;
 CREATE TABLE teachers (
   id INTEGER  PRIMARY KEY AUTOINCREMENT NOT NULL,
-  name VARCHAR(50),
-  email VARCHAR(50),
-  phone VARCHAR(50)
+  teacher_name VARCHAR(50),
+  teacher_email VARCHAR(50),
+  teacher_phone VARCHAR(50)
 );
 
 drop table if exists subjects;
 CREATE TABLE subjects (
   id INTEGER  PRIMARY KEY AUTOINCREMENT NOT NULL,
-  name VARCHAR(150) NOT NULL,
+  subject_name VARCHAR(150) NOT NULL,
   teacher_id INTEGER,
   FOREIGN KEY (teacher_id) REFERENCES teachers (id)
   	ON UPDATE CASCADE
