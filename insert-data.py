@@ -12,7 +12,7 @@ def insert_data_students():
     for _ in range(30):
         students_data = (fake.first_name(), fake.last_name(), fake.phone_number(), fake.email())
         cursor.execute('''
-            INSERT INTO students (first_name, last_name, phone, email)
+            INSERT INTO students (first_name, last_name, student_phone, student_email)
             VALUES (?, ?, ?, ?)
         ''', students_data)
 
@@ -20,7 +20,7 @@ def insert_data_teachers():
     for _ in range(5):
         teacher_data = (fake.name(), fake.email(), fake.phone_number())
         cursor.execute('''
-            INSERT INTO teachers (name, email, phone)
+            INSERT INTO teachers (teacher_name, teacher_email, teacher_phone)
             VALUES (?, ?, ?)
         ''', teacher_data)
 
@@ -28,7 +28,7 @@ def insert_data_groups():
     for _ in range(3):
         group_data = (fake.word(), random.randint(1, 30))
         cursor.execute('''
-            INSERT INTO groups (name, student_id)
+            INSERT INTO groups (group_name, student_id)
             VALUES (?, ?)
         ''', group_data)
 
@@ -36,7 +36,7 @@ def insert_data_subjects():
     for _ in range(5):
         subject_data = (fake.word(), random.randint(1, 5))
         cursor.execute('''
-            INSERT INTO subjects (name, teacher_id)
+            INSERT INTO subjects (subject_name, teacher_id)
             VALUES (?, ?)
         ''', subject_data)
 
